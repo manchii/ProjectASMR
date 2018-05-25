@@ -16,7 +16,7 @@ SC_MODULE(Contador){
     SC_CTOR(Contador){
         SC_METHOD(count_func);
             sensitive << reset.neg();
-            sensitive << clock.pos();
+            sensitive << clk.pos();
     }
     
     
