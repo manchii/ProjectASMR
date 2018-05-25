@@ -8,7 +8,7 @@ SC_MODULE(Contador){
     sc_out < sc_uint<12> > Salida;
     
 //-------------Local Variable---------------------------
-    sc_unit<12>  count;
+    sc_uint<12>  count;
 //------------Funcion-----------------------------------    
     void count_func();
     
