@@ -2,13 +2,13 @@
 #include "alu.cpp"
 
 int sc_main(int argc, char* argv[]){
-	sc_signal <bool> clk;
-	sc_signal <sc_uint<16> A;
-	sc_signal <sc_uint<16> B;
-	sc_signal <sc_uint<4> op;
-	sc_signal <bool> overflow;
-	sc_signal <bool> carry;
-	sc_signal <sc_uint<16> result;
+	sc_signal<bool> clk;
+	sc_signal<sc_uint<16> > A;
+	sc_signal<sc_uint<16> > B;
+	sc_signal<sc_uint<4> > op;
+	sc_signal<bool> overflow;
+	sc_signal<bool> carry;
+	sc_signal<sc_uint<16> > result;
 
 	//Connect the DUT
 	alu imp("ALU");
@@ -32,6 +32,8 @@ int sc_main(int argc, char* argv[]){
 	sc_trace(wf,overflow,"overflow");
 	sc_trace(wf,carry,"carry");
 	sc_trace(wf,result,"result");
+
+	int i = 0;
 
 	//Inicializo variables
 	A=0;

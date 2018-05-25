@@ -2,12 +2,12 @@
 
 SC_MODULE (alu){
 	sc_in_clk  clk;
-	sc_in <sc_uint<16> A;
-	sc_in <sc_uint<16> B;
-	sc_in <sc_uint<4> op;
-	sc_out <bool> overflow;
-	sc_out <bool> carry;
-	sc_out <sc_uint<16> result;
+	sc_in<sc_uint<16> > A;
+	sc_in<sc_uint<16> > B;
+	sc_in<sc_uint<4> > op;
+	sc_out<bool> overflow;
+	sc_out<bool> carry;
+	sc_out<sc_uint<16> > result;
 
 	sc_uint<16> dataA, dataB;
 	sc_uint<32> res; 
