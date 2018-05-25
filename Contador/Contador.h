@@ -9,27 +9,10 @@ SC_MODULE(Contador){
     
 //-------------Local Variable---------------------------
     sc_unit<12>  count;
+//------------Funcion-----------------------------------    
+    void count_func()
     
-    void count_func(){
-    
-        if(reset.read()==0){
-            count=0;
-            Salida.write(count);
-        }
-        else if(Enable.read()==1){
-            if(Down==1){
-                count=count-1;
-                Salida.write(count);
-            }
-            else{
-                count=count+1;
-                Salida.write(count);
-            }
-        }
-     
-    }
-    
-    //------------------Constructor---------------------
+//------------------Constructor---------------------
     SC_CTOR(Contador){
         SC_METHOD(count_func);
             sensitive << reset.neg();
