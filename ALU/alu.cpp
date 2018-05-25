@@ -79,9 +79,9 @@ SC_MODULE (alu){
 
 	}
 
-	SC_CTOR(first_counter) {
+	SC_CTOR(alu) {
 	    cout<<"Executing new"<<endl;
 	    SC_METHOD(operate);
 	    sensitive << clk.pos();
 	  } // End of Constructor
-}
+};
