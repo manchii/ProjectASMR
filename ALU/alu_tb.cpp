@@ -24,7 +24,7 @@ int sc_main(int argc, char* argv[]){
 	sc_start(1, SC_NS);
 
 	//Abrir VCD file
-	sc_trace_file *wf = sc_create_vcs_trace_file("alu");
+	sc_trace_file *wf = sc_create_vcd_trace_file("alu");
 	sc_trace(wf,clk,"clk");
 	sc_trace(wf,A,"A");
 	sc_trace(wf,B,"B");
