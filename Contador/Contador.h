@@ -10,12 +10,13 @@ SC_MODULE(Contador){
 //-------------Local Variable---------------------------
     sc_unit<12>  count;
 //------------Funcion-----------------------------------    
-    void count_func()
+    void count_func();
     
 //------------------Constructor---------------------
     SC_CTOR(Contador){
         SC_METHOD(count_func);
-            sensitive << reset.neg();
+            reset_signal_is(Reset, false);
+            sensitive << Reset.neg();
             sensitive << clk.pos();
     }
     

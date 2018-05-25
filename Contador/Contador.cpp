@@ -1,8 +1,8 @@
 #include <systemc.h>
 #include <Contador.h>
 
-void Contador::count_func(){   
-    if(reset.read()==0){
+void Contador::count_func(void){   
+    if(Reset.read()==0){
         count=0;
         Salida.write(count);
     }

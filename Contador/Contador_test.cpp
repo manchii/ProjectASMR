@@ -3,11 +3,12 @@
 #include "Contador.cpp"
 
 int sc_main (int argc, char* argv[]) {
-    sc_signal<bool>   clk;
+    sc_signal<bool>    clk;
     sc_signal<bool>   Reset;
     sc_signal<bool>   Enable;
     sc_signal<bool>   Down;
-    sc_signal<sc_uint<4> > Salida;
+    sc_signal<sc_uint<12> > Salida;
+    int i=0;
     
     
 //DUT
@@ -19,7 +20,7 @@ int sc_main (int argc, char* argv[]) {
         counter.Salida(Salida);
      
     
-    sc_start(1);
+    sc_start(1, SC_NS);
     //Open VCD FILE
     sc_trace_file *wf = sc_create_vcd_trace_file("counter");
     //Pone los traces para el VCD File
@@ -39,39 +40,40 @@ int sc_main (int argc, char* argv[]) {
     //Crea el reloj
     for (i=0; i<5; i++){
         clk=0;
-        sc_start(1);
+        sc_start(1, SC_NS);
         clk=1;
-        sc_start(1);
+        sc_start(1, SC_NS);
     }
     
-    Reset=0
+    Reset=0;
     
     for (i=0; i<10; i++){
         clk=0;
-        sc_start(1);
+        sc_start(1, SC_NS);
         clk=1;
-        sc_start(1);
+        sc_start(1, SC_NS);
     }       
-    Reset=1
+    Reset=1;
     for (i=0; i<5; i++){
         clk=0;
-        sc_start(1);
+        sc_start(1, SC_NS);
         clk=1;
-        sc_start(1);
+        sc_start(1, SC_NS);
     }
-    Enable=1
+    Enable=1;
     for (i=0; i<5; i++){
         clk=0;
-        sc_start(1);
+        sc_start(1, SC_NS);
         clk=1;
-        sc_start(1);
+        sc_start(1, SC_NS);
     }
-    Down=1
+    Down=1;
     for (i=0; i<10; i++){
         clk=0;
-        sc_start(1);
+        sc_start(1, SC_NS);
         clk=1;
-        sc_start(1);
+        sc_start(1, SC_NS);
     } 
+    sc_close_vcd_trace_file(wf);
     return 0;
 }
