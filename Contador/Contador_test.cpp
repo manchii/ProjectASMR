@@ -1,6 +1,6 @@
 #include <systemc.h>
 #include "Contador.h"
-#include "Contador.cpp"
+
 
 int sc_main (int argc, char* argv[]) {
     sc_signal<bool>    clk;

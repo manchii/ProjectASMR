@@ -2,17 +2,17 @@
 
 SC_MODULE (alu){
 	sc_in_clk  clk;
-	sc_in<sc_uint<16> > A;
-	sc_in<sc_uint<16> > B;
-	sc_in<sc_uint<4> > op;
+	sc_in<sc_int<16> > A;
+	sc_in<sc_int<16> > B;
+	sc_in<sc_int<4> > op;
 	sc_out<bool> overflow;
 	sc_out<bool> carry;
-	sc_out<sc_uint<16> > result;
+	sc_out<sc_int<16> > result;
 
-	sc_uint<16> dataA, dataB;
-	sc_uint<32> res; 
+	sc_int<16> dataA, dataB;
+	sc_int<32> res; 
 
-	bool overflow_detec(sc_uint<32> val){
+	bool overflow_detec(sc_int<32> val){
 		if(val>=65536 || val <= -32768){
 			return true;
 		}

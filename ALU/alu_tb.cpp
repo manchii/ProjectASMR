@@ -3,12 +3,12 @@
 
 int sc_main(int argc, char* argv[]){
 	sc_signal<bool> clk;
-	sc_signal<sc_uint<16> > A;
-	sc_signal<sc_uint<16> > B;
-	sc_signal<sc_uint<4> > op;
+	sc_signal<sc_int<16> > A;
+	sc_signal<sc_int<16> > B;
+	sc_signal<sc_int<4> > op;
 	sc_signal<bool> overflow;
 	sc_signal<bool> carry;
-	sc_signal<sc_uint<16> > result;
+	sc_signal<sc_int<16> > result;
 
 	//Connect the DUT
 	alu imp("ALU");
