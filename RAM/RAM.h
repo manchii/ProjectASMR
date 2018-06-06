@@ -1,19 +1,28 @@
 #include <systemc.h>
+#define Ancho_dato	32
+#define Direccion_ancho 4
+#define numero_registros 1 << Direccion_ancho
+
 SC_MODULE(RAM){
-    sc_in <bool> en_write;
-    sc_in <bool> en_read;
-    sc_in <uint<32>> data_write;
-    sc_in <uint<4>> direccion;
-    sc_out <uint<32>> Salida;
+    sc_in <sc_uint<Direccion_ancho>> direccion;
+    sc_in <bool>	chipselect;
+    sc_in <bool>	write_enable;
+    sc_in <bool>	read_enable;
+    sc_in <sc_uint<Ancho_dato>> data_write;
+    sc_out <sc_uint<Ancho_dato>> Output;
     
-    void ram_func();
+    //Variable internas
+
+    sc_uint <Ancho_dato> mem [numero_registros];
+
+    void Ram_escritura();
+    void Ram_lectura();
     
      SC_CTOR(RAM){
-        SC_METHOD(ram_func);
-            sensitive << en_write;
-            sensitive << en_read;
-            sensitive << direccion;
-            sensitive << data_write;
+        SC_METHOD(Ram_escritura);
+        	sensitive << chipselect << write_enable << data_write;
+		SC_METHOD(Ram_lectura); 
+			sensitive << direccion << chipselect << write_enable << read_enable;       
     }
     
     
