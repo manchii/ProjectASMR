@@ -7,17 +7,18 @@ SC_MODULE(Fp_add){
 
     void update_out(){
 		float a,b,out_aux;
-		int aux;
+		int aux1,aux2;
 
-		aux=A.read();
-		cout<<aux<<endl;
-		a=*(float *)&(aux);
-		aux=B.read();
-		cout<<aux<<endl;
-		b=*(float *)&(aux);
+		aux1=A.read();
+		a=*(float *)&(aux1);
+		cout<<a<<endl;
+		aux2=B.read();
+		b=*(float *)&(aux2);
+		cout<<b<<endl;
 		out_aux=a+b;
-		cout<<"Module: "<<a<<" "<<b<<" "<<out<<endl;
+		
 		out.write(*(int *)&out_aux);
+		cout<<"Module: "<<a<<" "<<b<<" "<<out_aux<<endl;
 	}
 
 	SC_CTOR(Fp_add){

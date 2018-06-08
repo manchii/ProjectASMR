@@ -35,6 +35,10 @@ int sc_main(int argc, char* argv[]){
 	A=*(int *)&aux;
 	B=0;
     sc_start(1, SC_NS);
+	aux=-4;
+	B=*(int *)&aux;
+    sc_start(1, SC_NS);
+
 
 	sc_close_vcd_trace_file(wf);
   	return 0;// Terminate simulation
