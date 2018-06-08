@@ -1,4 +1,7 @@
 #include "tb.h"
+#define Ancho_dato	32
+#define Direccion_ancho 4
+#define numero_registros (1<<Direccion_ancho)
 
 void tb::source() {
 	//Abre el archivo VCD con nombre RAM
@@ -18,12 +21,12 @@ void tb::source() {
 	read_enable.write(0);
 	data_write.write(0);
 	direccion.write(0);
-	wait(2)
+	wait(2);
 
 	//Escritura Registros
 	chipselect.write(1);
 	write_enable.write(1);
-	for( int i =0; i<16 , i++){
+	for( int i =0; i<16; i++){
 		direccion.write(i);
 		data_write.write(i);
 		wait();
@@ -32,7 +35,7 @@ void tb::source() {
 	//Lectura Regsitros
 	write_enable.write(0);
 	read_enable.write(1);
-	for( int i =0; i<16 , i++){
+	for( int i =0; i<16 ; i++){
 		direccion.write(i);
 		wait();
 	}	
@@ -41,8 +44,8 @@ void tb::source() {
 void tb::sink() {
 	sc_uint<32> Salidas;
 	for( int i = 0; i<100; i++) {
-  	Salidas = Output.read();
-    wait();
-    cout << i << " :\t" << Salidas.to_uint() << endl;
-
+  		Salidas = Output.read();
+   		wait();
+    	cout << i << " :\t" << Salidas.to_uint() << endl;
+	}
 }

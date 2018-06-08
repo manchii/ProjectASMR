@@ -12,7 +12,7 @@ SC_MODULE( SYSTEM){
 	RAM *RAM0;
 
 
-	sc_signal< sc_uint<Direccion_ancho> > ;
+	sc_signal< sc_uint<Direccion_ancho> > direccion;
 	sc_signal< bool > chipselect;
 	sc_signal< bool > write_enable;
 	sc_signal< bool > read_enable;
@@ -32,16 +32,15 @@ SC_MODULE( SYSTEM){
 			tb0 -> write_enable(write_enable);
 			tb0 -> read_enable(read_enable);
 			tb0 -> data_write(data_write);
-			 
+			tb0 -> direccion(direccion); 
 
 			RAM0 = new RAM("RAM0");
-			RAM0 -> clk(clk_sig);
 			RAM0 -> Output(Output);
 			RAM0 -> chipselect(chipselect);
 			RAM0 -> write_enable(write_enable);
 			RAM0 -> read_enable(read_enable);
 			RAM0 -> data_write(data_write);
-			 
+			RAM0 -> direccion(direccion);
 
 		}
 	~SYSTEM(){
