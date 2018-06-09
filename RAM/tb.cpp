@@ -48,4 +48,5 @@ void tb::sink() {
    		wait();
     	cout << i << " :\t" << Salidas.to_uint() << endl;
 	}
+	sc_stop();
 }

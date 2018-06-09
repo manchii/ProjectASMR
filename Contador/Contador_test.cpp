@@ -29,7 +29,7 @@ int sc_main (int argc, char* argv[]) {
     sc_trace(wf, Reset, "Reset");
     sc_trace(wf, Enable, "Enable");
     sc_trace(wf, Salida, "Salida");
-    
+    sc_trace(wf, Down, "Down");
     //Valores Iniciales
     Reset=1; 
     Enable=0; 
