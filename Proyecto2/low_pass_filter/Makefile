@@ -22,3 +22,5 @@ all:
 	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/systemc-ams-2.1/lib-linux64
 	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/systemc-2.3.1/lib-linux64/
 	export LD_LIBRARY_PATH
+	./${EXE}
+	/usr/local/gaw/bin/gaw filter.dat
