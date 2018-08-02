@@ -1,0 +1,18 @@
+1-Para instalar gaw primero se debe tener actualizado gtk+
+>>sudo apt-get install libgtk-3-dev
+
+2-Luego se debe ir a la pagina de gaw y descargar la version mas reciente
+>> http://www.rvq.fr/php/ndl.php?id=gaw.?-.*
+
+3-Se descomprime el archivo descargado y se accede a la carpeta descomprimida
+>>tar zxvf gaw-yyyymmdd.tar.gz
+>>cd gaw-yyyymmdd
+
+4-Se realiza la instalacion con estos comandos
+>> sudo mkdir /usr/local/gaw
+>> ./configure --prefix=/usr/local/gaw
+>> sudo make
+>> sudo make install
+
+5- Para poder usarlo se ejecuta
+>> /usr/local/gaw/bin/gaw NOMBREDELARCHIVO.dat
